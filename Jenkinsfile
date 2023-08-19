@@ -23,7 +23,7 @@ pipeline {
          }
      }
 
-     stage('Docker Push') {
+     stage('Docker Push to dev') {
         steps {
         // Docker push based on branch name
          withCredentials([usernamePassword(credentialsId: 'docker-id', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
@@ -33,7 +33,7 @@ pipeline {
           }
        }
     } 
-     stage('Docker Push') {
+     stage('Docker Push to prod') {
       steps {
          withCredentials([usernamePassword(credentialsId: 'docker-id', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
            sh "docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD"
