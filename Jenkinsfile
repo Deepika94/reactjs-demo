@@ -1,6 +1,6 @@
 pipeline {
- agent any
-    stages {
+    agent any
+ stages {
         stage('Pull Code') {
             steps {
                 // Pull code from GitHub repository
